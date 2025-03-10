@@ -33,6 +33,7 @@ public class ControllerMove : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.IsOver == true) return;
         // 현재 손 위치 가져오기
         Vector3[] currentPosition = new Vector3[2] { leftHandPositionAction.action.ReadValue<Vector3>(),
                                                         rightHandPositionAction.action.ReadValue<Vector3>() };
@@ -74,7 +75,7 @@ public class ControllerMove : MonoBehaviour
         cameraRotationDelta.x = 0f;
         cameraRotationDelta.z = 0f;
         transform.rotation = cameraRotationDelta * transform.rotation;
-        Debug.Log("회전:"+transform.rotation);
+        //Debug.Log("회전:"+transform.rotation);
         previousCameraRotation = mainCamera.rotation;
 
         // 현재 위치를 이전 위치로 저장

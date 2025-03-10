@@ -9,7 +9,8 @@ using UnityEngine.Assertions;
 /// </summary>
 public class Fish : MonoBehaviour
 {
-
+    private int level;
+    public int Level {  get { return level; } set { level = value; } }
     /// <summary>
     /// 수조의 중심 위치.  
     /// 장애물 회피 시 기준점으로 사용됨.
@@ -93,6 +94,7 @@ public class Fish : MonoBehaviour
 
     void Start()
     {
+        tankCenterGoal = GameObject.Find("Water").transform;
         // tankCenterGoal이 설정되지 않았으면 경고 메시지 출력
         if (tankCenterGoal == null)
         {
@@ -107,6 +109,7 @@ public class Fish : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsOver == true) return;
         Wiggle();          // 헤엄치는 애니메이션 처리
         Wander();          // 랜덤 이동 처리
         AvoidObstacles();  // 장애물 회피 처리
