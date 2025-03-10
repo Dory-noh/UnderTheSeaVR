@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PoolingManager : MonoBehaviour
 {
-    public static PoolingManager instance;
+    private static PoolingManager instance;
+    public static PoolingManager Instance
+    {
+        get { if (instance == null) FindObjectOfType<PoolingManager>(); return instance; }
+    }
     [SerializeField] private GameObject[] fishPrefabs = new GameObject[5];
     [SerializeField] private List<List<GameObject>> fishList = new List<List<GameObject>> { }; 
     [SerializeField] Transform[] area = new Transform[3]; //layer별 위치 받아옴
@@ -65,8 +69,27 @@ public class PoolingManager : MonoBehaviour
             //if (GameManager.instance.isGameover) break;
             if (fish.activeSelf == false)
             {
+                fish.GetComponent<Fish>().Area = i;
                 fish.transform.position = area[i].transform.position;
                 fish.transform.rotation = area[i].transform.rotation;
+                fish.gameObject.SetActive(true);
+                break;
+            }
+        }
+    }
+
+    public IEnumerator FishRespawn(int AreaNum, int level)
+    {
+        //if (GameManager.Instance.IsOver == true) yield return null;
+        yield return new WaitForSeconds(1f);
+        Debug.Log($"{AreaNum}위치에 {level}물고기 리스폰 되었습니다.");
+        foreach (var fish in fishList[level])
+        {
+            //if (GameManager.instance.isGameover) break;
+            if (fish.activeSelf == false)
+            {
+                fish.transform.position = area[AreaNum].transform.position;
+                fish.transform.rotation = area[AreaNum].transform.rotation;
                 fish.gameObject.SetActive(true);
                 break;
             }

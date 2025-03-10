@@ -10,7 +10,9 @@ using UnityEngine.Assertions;
 public class Fish : MonoBehaviour
 {
     [SerializeField] private int level;
+    [SerializeField] private int area;
     public int Level {  get { return level; } set { level = value; } }
+    public int Area { get { return area; } set { area = value; } }
     /// <summary>
     /// 수조의 중심 위치.  
     /// 장애물 회피 시 기준점으로 사용됨.
