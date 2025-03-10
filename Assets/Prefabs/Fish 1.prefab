@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1227419950035805973}
   - component: {fileID: 1227419950035805974}
   - component: {fileID: 1227419950035805975}
-  - component: {fileID: 6470300823599271113}
+  - component: {fileID: 6488348712714452133}
   m_Layer: 8
   m_Name: Fish 1
   m_TagString: Fish
@@ -113,8 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ea76f562e849c4aa0136b78822687f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.8
+  playerSensingDistance: 7
   swimSpeedMin: 0.2
   swimSpeedMax: 0.6
   maxTurnRateY: 5
@@ -122,7 +124,7 @@ MonoBehaviour:
   wanderPeriodDuration: 0.8
   wanderProbability: 0.15
   swimSpeed: 0
---- !u!54 &6470300823599271113
+--- !u!54 &6488348712714452133
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

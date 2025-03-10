@@ -113,8 +113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ea76f562e849c4aa0136b78822687f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.8
+  playerSensingDistance: 7
   swimSpeedMin: 0.2
   swimSpeedMax: 0.6
   maxTurnRateY: 5

@@ -9,7 +9,7 @@ using UnityEngine.Assertions;
 /// </summary>
 public class Fish : MonoBehaviour
 {
-    private int level;
+    [SerializeField] private int level;
     public int Level {  get { return level; } set { level = value; } }
     /// <summary>
     /// 수조의 중심 위치.  
@@ -22,6 +22,10 @@ public class Fish : MonoBehaviour
     /// 이 거리 안에 장애물이 있으면 회피 행동을 시작함.
     /// </summary>
     public float obstacleSensingDistance = 0.8f;
+
+    //플레이어 탐지 거리(단위: 미터)
+    //이 거리 안에 플레이어가 있으면 회피 행동을 시작함.
+    public float playerSensingDistance = 7f;
 
     /// <summary>
     /// 물고기의 최소 이동 속도 (m/s).
@@ -72,6 +76,9 @@ public class Fish : MonoBehaviour
     // 장애물을 감지했는지 여부
     private bool obstacleDetected = false;
 
+    // 플레이어를 감지했는지 여부
+    private bool playerDetected = false;
+
     // 현재 방황 주기의 시작 시간
     private float wanderPeriodStartTime;
 
@@ -99,7 +106,9 @@ public class Fish : MonoBehaviour
         if (tankCenterGoal == null)
         {
             Debug.LogError("[" + name + "] tankCenterGoal 값이 필요하지만 설정되지 않음.");
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
+#endif
         }
 
         bodyTransform = transform.Find("Body");
@@ -113,6 +122,11 @@ public class Fish : MonoBehaviour
         Wiggle();          // 헤엄치는 애니메이션 처리
         Wander();          // 랜덤 이동 처리
         AvoidObstacles();  // 장애물 회피 처리
+        //플레이어 레벨보다 레벨이 낮은 물고기면 플레이어와의 거리가 일정 크기 미만일 때 회피한다.
+        if(level < GameManager.Instance.PlayerLevel) AvoidPlayer();
+
+        //플레이어 레벨보다 레벨이 높은 물고기면 플레이어와의 거리가 일정 크기 미만일 때 플레이어를 추격한다.
+        if (level > GameManager.Instance.PlayerLevel) TracePlayer();
 
         DrawDebugAids();   // 디버그용 시각적 요소 그리기
         UpdatePosition();  // 위치 업데이트
@@ -158,6 +172,7 @@ public class Fish : MonoBehaviour
         swimSpeed = Mathf.Lerp(swimSpeedMin, swimSpeedMax, speedPercent);
 
         if (obstacleDetected) return;
+        if (playerDetected) return;
 
         if (Time.time > wanderPeriodStartTime + wanderPeriodDuration)
         {
@@ -221,6 +236,54 @@ public class Fish : MonoBehaviour
         }
     }
 
+
+    void AvoidPlayer()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null)
+        {
+            //Debug.Log("플레이어 등록 실패");
+            return;
+        }
+
+        
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer < playerSensingDistance)
+        {
+            //Debug.Log("플레이어보다 레벨 낮음 : 회피");
+            playerDetected = true;
+            Vector3 playerDirection = (transform.position - player.transform.position);
+            goalLookRotation = Quaternion.LookRotation(playerDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime * maxTurnRateY);
+
+            // 가까울수록 빠르게 회피 (거리 비율 기반)
+            float speedFactor = 1 - (distanceToPlayer / playerSensingDistance);
+            swimSpeed = Mathf.Lerp(swimSpeedMin, swimSpeedMax, speedFactor);
+        }
+        else { playerDetected = false; }
+    }
+
+    void TracePlayer()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null)
+        {
+            //Debug.Log("플레이어 등록 실패");
+            return;
+        }
+
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer < playerSensingDistance)
+        {
+            //Debug.Log("플레이어 보다 레벨 높음 : 추격");
+            playerDetected = true;
+            Vector3 playerDirection = (player.transform.position - transform.position);
+            goalLookRotation = Quaternion.LookRotation(playerDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime * maxTurnRateY);
+            swimSpeed = swimSpeedMax;
+        }
+        else { playerDetected = false; }
+    }
 
     /// <summary>
     /// 물고기의 위치를 업데이트.

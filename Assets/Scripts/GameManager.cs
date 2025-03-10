@@ -55,14 +55,14 @@ public class GameManager : MonoBehaviour
 
     public void PlusExp() //플레이어보다 레벨이 낮은 물고기와 충돌시 1점 획득
     {
-        Debug.Log("하위 레벨 공격 성공 : 1점 획득");
+        //Debug.Log("하위 레벨 공격 성공 : 1점 획득");
         exp++;
         SetLevel();
     }
 
     public void MinusExp() //플레이어와 레벨이 같은 물고기와 충돌시 1점 차감
     {
-        Debug.Log("동일 레벨 물고기와 충돌 : 1점 감점");
+        //Debug.Log("동일 레벨 물고기와 충돌 : 1점 감점");
         exp--;
         SetLevel();
     }
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     public void SetLevel()
     {
         if (exp / 10 == playerLevel) playerLevel++;
-        Debug.Log($"플레이어 레벨 : {playerLevel.ToString()}");
+        //Debug.Log($"플레이어 레벨 : {playerLevel.ToString()}");
 
         if(playerLevel > 5)
         {
