@@ -1,0 +1,142 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 69522,
+      "max": [
+        0.0475029982626438,
+        0.0851730033755302,
+        0.0189839992672205
+      ],
+      "min": [
+        -0.047435000538826,
+        -0.0850749984383583,
+        -0.0191140007227659
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 69522,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 69522,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5125,
+      "count": 300000,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "generator": "MeshSmith mesh conversion tool",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 834264,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 834264,
+      "byteOffset": 834264,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 556176,
+      "byteOffset": 1668528,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1200000,
+      "byteOffset": 2224704,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 3424704,
+      "uri": "usnm_76600-100k-2048.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "usnm_76600-100k-2048-diffuse.jpg"
+    },
+    {
+      "uri": "usnm_76600-100k-2048-occlusion.jpg"
+    },
+    {
+      "uri": "usnm_76600-100k-2048-normals.jpg"
+    }
+  ],
+  "materials": [
+    {
+      "name": "default",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.100000001490116,
+        "roughnessFactor": 0.800000011920929
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "source": 0
+    },
+    {
+      "source": 1
+    },
+    {
+      "source": 2
+    }
+  ]
+}

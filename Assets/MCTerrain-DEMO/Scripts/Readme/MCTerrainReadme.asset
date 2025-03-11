@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fc987737e55465a9ff2299d36839294, type: 3}
+  m_Name: MCTerrainReadme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: 694bb955cc5612f4c95a76f001981455, type: 3}
+  title: MC Terrain Demo
+  sections:
+  - heading: Welcome to the MC Terrain Demo
+    text: 
+    linkText: 
+    url: 
+  - heading: 
+    text: "\u2022 Marching cubes terrain generation"
+    linkText: 
+    url: 
+  - heading: 
+    text: "\u2022 Everything procedurally generated from a single seed"
+    linkText: 
+    url: 
+  - heading: 
+    text: "\u2022 GPU Instanced grass"
+    linkText: 
+    url: 
+  - heading: 
+    text: "\u2022 Basic water implementation"
+    linkText: 
+    url: 
+  - heading: 
+    text: 
+    linkText: 
+    url: 
+  - heading: 
+    text: This is the demo version of MC Terrain, so you can play with the terrain
+      settings and see the terrain that it generates.
+    linkText: 
+    url: 
+  - heading: 
+    text: It creates a static area of terrain and places a Fly Camera at the centre
+      of it so you can easily move around the terrain.
+    linkText: 
+    url: 
+  - heading: 
+    text: Just go to 'Tools/MC Terrain' menu and select 'Add Tags' to add in the
+      required tags, and then hit 'Play'.
+    linkText: 
+    url: 
+  - heading: 
+    text: For more info check out the included documentation.
+    linkText: 
+    url: 
+  - heading: 
+    text: To find out more about the full package check out the website.
+    linkText: 
+    url: 
+  - heading: Full Documentation
+    text: Full documentation and tutorial videos on our website.
+    linkText: www.mcterrain.com
+    url: http://www.mcterrain.com
+  - heading: Join our Discord
+    text: 
+    linkText: For discussion and support
+    url: https://discord.gg/Y5sT9RNMhA
+  loadedLayout: 1
