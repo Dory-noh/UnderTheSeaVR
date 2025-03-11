@@ -13,7 +13,7 @@ public class ControllerMove : MonoBehaviour
     public float speedMultiplier = 15f; // 속도 배율
     public float maxSpeed = 7f; // 최대 이동 속도
     public float smoothSpeed = 5f; // 부드러운 이동 속도
-    public float acceleration = 4f; // 가속도
+    public float acceleration = 10f; // 가속도
     public float deceleration = 5f; // 감속도
     private Quaternion previousCameraRotation;
 

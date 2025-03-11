@@ -1026,15 +1026,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "LeftControllerMove",
-                    "type": "Value",
-                    "id": "b0b5b335-9eb3-4930-831f-e0c638190183",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1123,17 +1114,6 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Snap Turn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b5e169b0-2527-43e6-8dca-f90f3f8c3e53",
-                    "path": "<XRController>{LeftHand}/{Point}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Continuous Move",
-                    "action": "LeftControllerMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1842,15 +1822,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "RightControllerMove",
-                    "type": "Value",
-                    "id": "b10f1768-f183-4f76-be60-1f7b7e839026",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1939,17 +1910,6 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Snap Turn",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "06efc7c5-3d5e-4ff4-ad4f-b6642aca8ff0",
-                    "path": "<XRController>{RightHand}/{Point}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Continuous Move",
-                    "action": "RightControllerMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

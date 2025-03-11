@@ -30,7 +30,7 @@ public class Fish : MonoBehaviour
 
     //플레이어 탐지 거리(단위: 미터)
     //이 거리 안에 플레이어가 있으면 회피 행동을 시작함.
-    public float playerSensingDistance = 7f;
+    public float playerSensingDistance = 20f;
 
     /// <summary>
     /// 물고기의 최소 이동 속도 (m/s).
@@ -287,14 +287,17 @@ public class Fish : MonoBehaviour
         }
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        Debug.Log($"추격 거리 체크 : 플레이어와의 거리는 {distanceToPlayer}미터, 추격 범위는 {playerSensingDistance}입니다.");
         if (distanceToPlayer < playerSensingDistance)
         {
-            //Debug.Log("플레이어 보다 레벨 높음 : 추격");
+            Debug.Log("플레이어 보다 레벨 높음 : 추격");
             playerDetected = true;
             Vector3 playerDirection = (player.transform.position - transform.position);
             goalLookRotation = Quaternion.LookRotation(playerDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, goalLookRotation, Time.deltaTime * maxTurnRateY);
             swimSpeed = swimSpeedMax;
+
+            StartCoroutine(UIManagerForGameScene.Instance.BlinkRedImg());
         }
         else { playerDetected = false; }
     }

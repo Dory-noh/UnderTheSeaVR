@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("게임 종료");
-        //isOver = true;
+        isOver = true;
     }
 
     public void SetLevel()

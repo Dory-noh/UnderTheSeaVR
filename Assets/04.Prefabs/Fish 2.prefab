@@ -119,7 +119,7 @@ MonoBehaviour:
   isBumped: 0
   tankCenterGoal: {fileID: 0}
   obstacleSensingDistance: 0.8
-  playerSensingDistance: 7
+  playerSensingDistance: 20
   swimSpeedMin: 0.2
   swimSpeedMax: 0.6
   maxTurnRateY: 5
