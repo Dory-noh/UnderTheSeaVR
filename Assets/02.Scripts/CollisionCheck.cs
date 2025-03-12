@@ -19,14 +19,14 @@ public class CollisionCheck : MonoBehaviour
             if (playerLevel > level) //플레이어의 레벨이 부딪힌 물고기의 레벨보다 높을 때
             {
                 //경험치 1 증가
-                GameManager.Instance.PlusExp();
+                GameManager.Instance.PlusExp(level+1);
                 other.gameObject.SetActive(false);
                 StartCoroutine(PoolingManager.Instance.FishRespawn(other.GetComponent<Fish>().Area, other.GetComponent<Fish>().Level));
             }
             else if (playerLevel == level) //플레이어의 레벨과 부딪힌 물고기의 레벨이 같을 때
             {
                 //경험치 1 감소
-                GameManager.Instance.MinusExp();
+                GameManager.Instance.MinusExp(level+1);
             }
             else //플레이어의 레벨이 부딪힌 물고기의 레벨보다 작을 때
             {

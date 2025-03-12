@@ -31,7 +31,7 @@ public class UIManagerForGameScene : MonoBehaviour
     }
     public IEnumerator BlinkRedImg()
     {
-        Debug.Log("위험해요");
+        //Debug.Log("위험해요");
         for(int i = 0; i < blinkCount; i++)
         {
             WarningImg.SetActive(true);

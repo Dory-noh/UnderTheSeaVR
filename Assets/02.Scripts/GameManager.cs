@@ -5,10 +5,18 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool isOver;
-
+    
     public bool IsOver
     {
         get { return isOver; }
+    }
+
+    [SerializeField] private int moveMode;
+
+    public int MoveMode
+    {
+        get { return moveMode; }
+        set { moveMode = value; }
     }
 
     private static GameManager instance;
@@ -21,7 +29,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int playerLevel;
+    [SerializeField] private int playerLevel;
 
     public int PlayerLevel
     {
@@ -53,17 +61,17 @@ public class GameManager : MonoBehaviour
         exp = 0;
     }
 
-    public void PlusExp() //플레이어보다 레벨이 낮은 물고기와 충돌시 1점 획득
+    public void PlusExp(int point) //플레이어보다 레벨이 낮은 물고기와 충돌시 1점 획득
     {
-        Debug.Log("하위 레벨 공격 성공 : 1점 획득");
-        exp++;
+        Debug.Log($"하위 레벨 공격 성공 : {point}점 획득");
+        exp+=point;
         SetLevel();
     }
 
-    public void MinusExp() //플레이어와 레벨이 같은 물고기와 충돌시 1점 차감
+    public void MinusExp(int point) //플레이어와 레벨이 같은 물고기와 충돌시 1점 차감
     {
-        Debug.Log("동일 레벨 물고기와 충돌 : 1점 감점");
-        exp--;
+        Debug.Log($"동일 레벨 물고기와 충돌 : {point}점 감점");
+        exp-=point;
         SetLevel();
     }
 
@@ -75,8 +83,13 @@ public class GameManager : MonoBehaviour
 
     public void SetLevel()
     {
-        if (exp / 10 == playerLevel) playerLevel++;
-        //Debug.Log($"플레이어 레벨 : {playerLevel.ToString()}");
+        if (exp / (10 * playerLevel) == 1)
+        {
+            Debug.Log($"플레이어 레벨 : {playerLevel.ToString()}");
+            FindObjectOfType<PlayerMove>().acceleration -= GameManager.Instance.PlayerLevel * 0.5f;
+            playerLevel++;
+        }
+        
 
         if(playerLevel > 5)
         {

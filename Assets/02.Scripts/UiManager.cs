@@ -20,8 +20,8 @@ public class UiManager : MonoBehaviour
     public TMP_Dropdown motionDropdown;
     public Slider brightnessSlider;
     public Slider volumeSlider;
-    public LocomotionProvider locoPr;
-    public ControllerMove conMov;
+    //public LocomotionProvider locoPr;
+    //public ControllerMove conMov;
     //public PostProcessingData globalVolume;
     public AudioSource audioSource;
     void Start()
@@ -30,6 +30,7 @@ public class UiManager : MonoBehaviour
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
         //brightnessSlider.onValueChanged.AddListener();
         volumeSlider.onValueChanged.AddListener(AdjustVolume);
+        AdjustVolume();
     }
 
     
@@ -60,11 +61,12 @@ public class UiManager : MonoBehaviour
         Onoff = !Onoff;
         option.SetActive(Onoff);
     }
-    public void AdjustVolume(float value)
+    public void AdjustVolume(float value = 5f)
     {
         if (audioSource != null)
         {
             audioSource.volume = value;
+            volumeSlider.value = value;
         }
     }
     public void ChangeResolution(int index)
@@ -84,18 +86,20 @@ public class UiManager : MonoBehaviour
     }
     public void MotionChange(int index)
     {
-        switch (index)
-        {
-            case 0:
-                locoPr.enabled = false;
-                conMov.enabled = true;
-                break;
-            case 1:
-                locoPr.enabled = true;
-                conMov.enabled = false;
-                break;
+        GameManager.Instance.MoveMode = index;
+        //switch (index)
+        //{
+        //    case 0:
+                
+        //        //locoPr.enabled = false;
+        //        //conMov.enabled = true;
+        //        break;
+        //    case 1:
+        //        //locoPr.enabled = true;
+        //        //conMov.enabled = false;
+        //        break;
 
-        }
+        //}
     }
 }
 

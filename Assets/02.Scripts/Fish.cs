@@ -35,12 +35,12 @@ public class Fish : MonoBehaviour
     /// <summary>
     /// 물고기의 최소 이동 속도 (m/s).
     /// </summary>
-    public float swimSpeedMin = 0.2f;
+    public float swimSpeedMin = 3.0f;
 
     /// <summary>
     /// 물고기의 최대 이동 속도 (m/s).
     /// </summary>
-    public float swimSpeedMax = 0.6f;
+    public float swimSpeedMax = 13.0f;
 
     /// <summary>
     /// 물고기의 최대 회전 속도 (Y축 기준).
@@ -122,6 +122,9 @@ public class Fish : MonoBehaviour
 
         bodyTransform = transform.Find("Body");
         randomOffset = Random.value;
+
+        swimSpeedMin = swimSpeedMin - (0.5f * level);
+        swimSpeedMax = swimSpeedMax - (1f * level);
     }
 
 
@@ -287,10 +290,10 @@ public class Fish : MonoBehaviour
         }
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log($"추격 거리 체크 : 플레이어와의 거리는 {distanceToPlayer}미터, 추격 범위는 {playerSensingDistance}입니다.");
+        //Debug.Log($"추격 거리 체크 : 플레이어와의 거리는 {distanceToPlayer}미터, 추격 범위는 {playerSensingDistance}입니다.");
         if (distanceToPlayer < playerSensingDistance)
         {
-            Debug.Log("플레이어 보다 레벨 높음 : 추격");
+            //Debug.Log("플레이어 보다 레벨 높음 : 추격");
             playerDetected = true;
             Vector3 playerDirection = (player.transform.position - transform.position);
             goalLookRotation = Quaternion.LookRotation(playerDirection);
