@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4625438147139156676}
   - component: {fileID: 807074842039591286}
   - component: {fileID: 1870197820613617309}
+  - component: {fileID: -2270484927619404696}
   m_Layer: 8
   m_Name: Hammerhead
   m_TagString: Fish
@@ -278,6 +279,19 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-2270484927619404696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625438147139156675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6938402265f4b464db825d88789456ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishData: {fileID: 11400000, guid: dec8baa5e4f66754d9c46d663140a660, type: 2}
 --- !u!1001 &5514158508362185523
 PrefabInstance:
   m_ObjectHideFlags: 0

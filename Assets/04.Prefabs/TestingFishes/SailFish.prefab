@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7315888290369708204}
   - component: {fileID: 3352037761296415518}
   - component: {fileID: 4342558407581662453}
+  - component: {fileID: -6771204979384146109}
   m_Layer: 8
   m_Name: SailFish
   m_TagString: Fish
@@ -247,6 +248,19 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-6771204979384146109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7315888290369708203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6938402265f4b464db825d88789456ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishData: {fileID: 11400000, guid: 101410b7f38fec640ae7b21b939e361b, type: 2}
 --- !u!1 &7315888291266390277
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ public class PlayerMove : MonoBehaviour
 
         if (GameManager.Instance.MoveMode == 0)
         {
-            Debug.Log("Motion Controll을 사용합니다.");
+            //Debug.Log("Motion Controll을 사용합니다.");
             Vector3[] currentPosition = new Vector3[2] { leftHandPositionAction.action.ReadValue<Vector3>(),
                                                         rightHandPositionAction.action.ReadValue<Vector3>() };
 

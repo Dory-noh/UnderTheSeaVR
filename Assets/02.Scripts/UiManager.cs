@@ -26,7 +26,8 @@ public class UiManager : MonoBehaviour
     public AudioSource audioSource;
     void Start()
     {
-
+        Oceanology = OceanManager.Instance.OceanUI;
+        Oceanology.SetActive(false);
         resolutionDropdown.onValueChanged.AddListener(ChangeResolution);
         //brightnessSlider.onValueChanged.AddListener();
         volumeSlider.onValueChanged.AddListener(AdjustVolume);
@@ -34,10 +35,6 @@ public class UiManager : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-    }
     public void GameScene() 
     {
         SceneManager.LoadScene("GameScene");
@@ -46,6 +43,7 @@ public class UiManager : MonoBehaviour
     {
         title.SetActive(!Turn);
         Oceanology.SetActive(Turn);
+        option.SetActive(false); 
     }
     public void Quit()
     {

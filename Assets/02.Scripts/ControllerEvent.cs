@@ -12,9 +12,12 @@ public class ControllerEvent : MonoBehaviour
     public UnityEvent ToggleRay;
     public UnityEvent ToggleRayOff;
     [SerializeField] private GameObject colorBall;
+    [SerializeField] private GameObject leftController;
+    [SerializeField] private GameObject rightController;
 
     private void Start()
     {
+        DisableRayInteractor();
         ToggleRayOff.Invoke();
     }
 
@@ -71,12 +74,21 @@ public class ControllerEvent : MonoBehaviour
 
     private void OnTriggerPressed(InputAction.CallbackContext context)
     {
-
+        leftController.GetComponent<XRRayInteractor>().enabled = true;
+        rightController.GetComponent<XRRayInteractor>().enabled = true;
         ToggleRay.Invoke();
     }
 
     private void OnTriggerReleased(InputAction.CallbackContext context)
     {
+        Invoke("DisableRayInteractor", 0.3f);
+
         ToggleRayOff.Invoke();
+    }
+
+    private void DisableRayInteractor()
+    {
+        leftController.GetComponent<XRRayInteractor>().enabled = false;
+        rightController.GetComponent<XRRayInteractor>().enabled = false;
     }
 }
