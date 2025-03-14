@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f43a584b18e36d4186b1e7ec1d40e38, type: 3}
+  m_Name: "\uBA54\uAC08\uB85C\uB3C8"
+  m_EditorClassIdentifier: 
+  fishName: "\uBA54\uAC08\uB85C\uB3C8"
+  description: "Megalodon. 2300\uB9CC \uB144 \uC804 \uC0DD\uC874\uD55C \uB300\uD615
+    \uC0C1\uC5B4\uC774\uC790 \uC9C0\uAD6C \uC5ED\uC0AC\uC0C1 \uAC00\uC7A5 \uAC70\uB300\uD55C
+    \uC5B4\uB958. \r\n1900\uB9CC\uB144\uB3D9\uC548 \uCD5C\uC0C1\uC704 \uD3EC\uC2DD\uC790\uB85C
+    \uC874\uC7AC\uD588\uC73C\uBA70, \uC11C\uC2DD \uBC94\uC704\uB3C4 \uB113\uC5B4\uC11C
+    \uC804\uC138\uACC4\uC5D0 \uC11C\uC2DD\uD588\uC744 \uAC83\uC73C\uB85C \uCD94\uC815.
+    \uC0C1\uC5B4\uC778 \uB9CC\uD07C \uACE8\uACA9 \uB300\uBD80\uBD84\uC774 \uC5F0\uACE8\uB85C
+    \uC774\uB8E8\uC5B4\uC838 \uC788\uC5B4 \uC8FC\uB85C \uBC1C\uACAC\uB418\uB294 \uC774\uBE68
+    \uD654\uC11D\uB4E4\uC774 \uB300\uBD80\uBD84\uC774\uB2E4. \r\n\uC774\uBE68 \uD654\uC11D\uC758
+    \uAE38\uC774\uAC00 20cm\uAC00\uAE4C\uC774 \uB418\uBA70, \uBC8C\uB9B0 \uC785\uC774
+    150cm\uC815\uB3C4\uB85C \uCD94\uC815, \uBAB8\uAE38\uC774\uB9CC 18m\uB97C \uB118\uACBC\uC744
+    \uAC83\uC73C\uB85C \uC608\uC0C1\uD558\uACE0 \uC788\uB2E4. "
